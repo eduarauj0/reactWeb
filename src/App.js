@@ -4,6 +4,10 @@ import Car from './teste';
 import Login from './login';
 import Formulario from './formulario';
 import Ajax from './ajax';
+import Bootstrap from './bootstrap';
+import Popup from './popup';
+import Grid from './grid';
+
 
 function App() {
   return (
@@ -12,6 +16,9 @@ function App() {
 	  <div><Car brand="Ford" /></div>
 	  <div><Formulario/></div>
 	  <div><Ajax/></div>
+	  <div><Bootstrap/></div>
+	  <div><Popup parametro1="passei 1 parametro"/></div>
+	  <div><Grid /></div>
     </div>
   );
 }
