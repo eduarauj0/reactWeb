@@ -7,6 +7,7 @@ import Ajax from './ajax';
 import Bootstrap from './bootstrap';
 import Popup from './popup';
 import Grid from './grid';
+import Grid2 from './grid2';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 	  <div><Bootstrap/></div>
 	  <div><Popup parametro1="passei 1 parametro"/></div>
 	  <div><Grid /></div>
+	  <div><Grid2 /></div>
     </div>
   );
 }

@@ -3,8 +3,8 @@ function HeadGrid({colunas}) {
 
   return (
 	<tr >
-		{colunas.map(col => 
-			<td>{col['nome']}</td>
+		{colunas.map((col,index) => 
+			<td key={index}>{col['nome']} </td>
 		)}
 	</tr>
   );

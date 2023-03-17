@@ -36,13 +36,22 @@ function Grid() {
   let active = 1;
   let items = [];
   
+  const first = () => alert('first');
+  
+  
+items.push(<Pagination.First key='1234' />);
+  items.push(<Pagination.Prev key='12345'/>);
+     
   for (let number = 1; number <= 5; number++) {
-				  items.push(
-					<Pagination.Item key={number} active={number === active}>
-					  {number}
-					</Pagination.Item>,
-				  );
-				}
+	  items.push(
+		<Pagination.Item key={number} active={number === active}>
+		  {number}
+		</Pagination.Item>,
+	  );
+	}
+	items.push(<Pagination.Next key='123456'/>);
+    items.push(<Pagination.Last key='1234567'/>);
+
 				
 				
   
@@ -50,14 +59,15 @@ function Grid() {
   <div>
 		<Table responsive>
 		  <thead>
-			<HeadGrid colunas={colunas} />
+				<HeadGrid colunas={colunas} /> 
 		  </thead>
 		  <tbody>
-				{albums.map(item => 
-					<Colunas data={item} colunas={colunas} />
+				{albums.map((item,indexKey) => 
+					<Colunas data={item} colunas={colunas} indexKey={indexKey} key={indexKey}/>
 				)}
 		  </tbody>
-		</Table>
+		</Table> 
+		
 		
                 <p>Tamanho é { length }.</p>
 				<Pagination>{items}</Pagination>
