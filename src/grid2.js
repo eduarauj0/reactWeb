@@ -30,8 +30,13 @@ function Grid2() {
     </div>
   );
   
+  const style = {
+      overflowY: 'scroll',
+      height:'500px'
+    };
+  
   return (
-  <div>
+  <div style={style}>
 		<Table responsive striped bordered hover>
 		  <thead>
 			<HeadGrid colunas={colunas} />
