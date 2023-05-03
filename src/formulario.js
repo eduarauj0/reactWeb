@@ -17,7 +17,7 @@ function MyForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Enter your name:
+      <label>Nome:
       <input 
         type="text" 
         name="username" 
@@ -25,7 +25,7 @@ function MyForm() {
         onChange={handleChange}
       />
       </label>
-      <label>Enter your age:
+      <label>Idade:
         <input 
           type="number" 
           name="age" 

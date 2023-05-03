@@ -28,7 +28,7 @@ function Grid() {
     },
     {
       id: 4,
-      title: 'Album Five',
+      title: 'Album Five 2',
       artist: 'Stacy'
     }
   ];
