@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function MyForm() {
   const [inputs, setInputs] = useState({});
@@ -17,23 +19,16 @@ function MyForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Nome:
-      <input 
-        type="text" 
-        name="username" 
-        value={inputs.username || ""} 
-        onChange={handleChange}
-      />
-      </label>
-      <label>Idade:
-        <input 
-          type="number" 
-          name="age" 
-          value={inputs.age || ""} 
-          onChange={handleChange}
-        />
-        </label>
-        <input type="submit" />
+      
+	  <TextField size="small"
+ id="outlined-basic" label="Nome" variant="outlined" value={inputs.username || ""} name="username"
+        onChange={handleChange}/>
+      <TextField size="small"
+ id="outlined-basic" label="Idade" variant="outlined" value={inputs.age || ""} name="age"
+        onChange={handleChange}/>
+        
+		<Button variant="contained" type="submit">Enviar</Button>
+       
     </form>
   )
 }

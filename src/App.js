@@ -12,6 +12,9 @@ import GridMiui from './gridMiui';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import MultipleSelect from './select';
+import GridMiui2 from './gridMiui2';
+import Data from './data';
 
 
 function App() {
@@ -20,17 +23,18 @@ function App() {
       <Row>
         <Col>
 			 <div className="App">
-      <h1>Hello World!</h1>
-	  <div><Car brand="Ford" /></div>
-	  <div><Formulario/></div>
-	  <div><Ajax/></div>
-	  <div><Bootstrap/></div>
-	  <div><Popup parametro1="passei 1 parametro"/></div>
-	  <div><Grid /></div>
-	  <div><Grid2 /></div>
-	  <div><GridMiui /></div>
-    </div>
-		
+			  <h1>Hello World!</h1>
+			  <div><Car brand="Ford" /></div>
+			  <div><Formulario/></div>
+			  <div><Ajax/></div>
+			  <div><Bootstrap/></div>
+			  <div><Popup parametro1="passei 1 parametro"/></div>
+			  <div><Grid /></div>
+			  <div><Grid2 /></div>
+			  <div><GridMiui /></div>
+			  <div><MultipleSelect /></div>
+			  <div><Data /></div>
+			</div>
 		</Col>
       </Row>
     </Container>

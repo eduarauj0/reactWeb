@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 function GridMiui() {
@@ -51,7 +53,10 @@ const rows = [
 	
   
   return (
-    <Box sx={{ height: 400, width: '100%' }}>
+    <div>
+		<Button variant="outlined" startIcon={<DeleteIcon />}>
+			Delete
+	</Button>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -66,7 +71,7 @@ const rows = [
         checkboxSelection
         disableRowSelectionOnClick
       />
-    </Box>
+    </div>
   );
   
 }
