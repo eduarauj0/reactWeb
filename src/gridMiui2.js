@@ -41,6 +41,7 @@ function GridMiui2() {
 	
 	function ajaxGet(url){
 		axios.get(url).then((response) => {
+			console.log('chamei');
 			setRows(response.data);
 		}).catch(error => {
 			console.log(error)
