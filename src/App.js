@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route,Link,NavLink } from "react-router-dom";
 import Car from './teste';
 import Login from './login';
 import Formulario from './formulario';
@@ -17,6 +17,7 @@ import GridMiui2 from './gridMiui2';
 import Data from './data';
 import FormBootstrap from './formBootstrap';
 import Home from './home';
+import Barra from './barra';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -29,7 +30,8 @@ function App() {
       <Row>
         <Col>
 			<BrowserRouter>
-				  <div className="App">	  
+				  <div className="App">	 
+					<Barra />
 					  <nav>
 						  <ul>
 							<li>
@@ -60,27 +62,13 @@ function App() {
 							  <Link to="/data">Data</Link>
 							</li>
 							<li>
-							  <Link to="/formBootstrap">FormBootstrap</Link>
+							  <NavLink to="/formBootstrap">FormBootstrap</NavLink>
 							</li>
 							<li>
 							  <Link to="/car">Car</Link>
 							</li>
 						  </ul>
 						</nav>
-						
-						
-						{/* aqui está dando submit <Navbar bg="light" expand="lg">
-						  
-							<Navbar.Brand href="home">Home</Navbar.Brand>
-							<Navbar.Toggle aria-controls="basic-navbar-nav" />
-							<Navbar.Collapse id="basic-navbar-nav">
-							  <Nav className="me-auto">
-								<Nav.Link href="gridMiui">GridMiui</Nav.Link>
-								<Nav.Link href="#link">Link</Nav.Link>
-							  </Nav>
-							</Navbar.Collapse>
-						
-						</Navbar>*/}
 					  
 					  <Routes>
 						  <Route path="/" element={<Home />} />
