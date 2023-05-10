@@ -21,6 +21,7 @@ import Barra from './barra';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import ButtonGrupo from './buttonGrupo';
 
 
 
@@ -31,45 +32,8 @@ function App() {
         <Col>
 			<BrowserRouter>
 				  <div className="App">	 
-					<Barra />
-					  <nav>
-						  <ul>
-							<li>
-							  <Link to="/formulario">Formulario</Link>
-							</li>
-							<li>
-							  <Link to="/ajax">Ajax</Link>
-							</li>
-							<li>
-							  <Link to="/bootstrap">Bootstrap</Link>
-							</li>
-							<li>
-							  <Link to="/grid">Grid</Link>
-							</li>
-							<li>
-							  <Link to="/grid2">Grid2</Link>
-							</li>
-							<li>
-							  <Link to="/gridMiui">GridMiui</Link>
-							</li>
-							<li>
-							  <Link to="/gridMiui2">GridMiui2</Link>
-							</li>
-							<li>
-							  <Link to="/multipleSelect">MultipleSelect</Link>
-							</li>
-							<li>
-							  <Link to="/data">Data</Link>
-							</li>
-							<li>
-							  <NavLink to="/formBootstrap">FormBootstrap</NavLink>
-							</li>
-							<li>
-							  <Link to="/car">Car</Link>
-							</li>
-						  </ul>
-						</nav>
-					  
+					  <Barra />
+					  <br /><br />
 					  <Routes>
 						  <Route path="/" element={<Home />} />
 						  <Route path="/formulario" element={<Formulario />} />
@@ -82,7 +46,8 @@ function App() {
 						  <Route path="/multipleSelect" element={<MultipleSelect />} />
 						  <Route path="/data" element={<Data />} />
 						  <Route path="/formBootstrap" element={<FormBootstrap />} />
-						  <Route path="/car" element={<Car brand="Ford" />} />
+						  <Route path="/car" element={<Car brand="Ford" color="azul"/>} />
+						  <Route path="/buttonGrupo" element={<ButtonGrupo />} />
 					  </Routes>
 				  </div>
 			</BrowserRouter>

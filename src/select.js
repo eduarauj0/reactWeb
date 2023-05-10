@@ -62,6 +62,10 @@ function MultipleSelect() {
     event.preventDefault();
     alert(JSON.stringify(inputs));
   }
+  
+  function changeBackground(e) {
+    e.target.style.background = 'red';
+  }
 
   return (
     <div>
@@ -86,6 +90,11 @@ function MultipleSelect() {
 		</Button>
 		
 		 </FormControl>
+		 <div
+	  onMouseEnter={changeBackground}
+	  onMouseLeave={changeBackground}
+		>aqui
+		</div>
     </div>
   );
 }
