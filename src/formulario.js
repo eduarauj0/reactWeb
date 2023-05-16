@@ -2,7 +2,6 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import axios from 'axios';
 
 function MyForm() {
   const [inputs, setInputs] = useState({});
@@ -15,28 +14,15 @@ function MyForm() {
   }
   
   function ajaxLogin(){
-	    //alert(JSON.stringify(inputs));
-		//axios.post(baseURL,'login=eduardo&senha=123').then((response) => {
-		const usersName = JSON.stringify(inputs);
-		const customConfig = "{headers: {'Content-Type': 'application/json'}";
-		axios.post(baseURL,'login=eduardo&senha=123').then((response) => {
-			console.log(response);
-			localStorage.setItem("token",response.data.token);
-		}).catch(error => {
-			console.log(error.response.data.message);
-		})
+	    	
+		fetch(baseURL, { 
+		   method: 'POST',
+		   headers: { 'Content-Type': 'application/json' },
+		   body: JSON.stringify({ 'login': 'eduardo','senha':'123' })
+		 }).then(response => response.json()).then(data => localStorage.setItem("token",data.token));
 		
-		//axios({
-		//  method: 'post',
-		//  url: baseURL,
-		//  headers: {'Content-Type': 'application/json'}, 
-		//  data: {
-		//	  "login":"eduardo"
-		//	  ,"senha":"123"
-		//	}
-		//});
 	}
-
+	
   const handleSubmit = (event) => {
 		ajaxLogin();
 		event.preventDefault();

@@ -40,12 +40,14 @@ function GridMiui2() {
 	];
 	
 	function ajaxGet(url){
-		axios.get(url).then((response) => {
-			console.log('chamei');
-			setRows(response.data);
-		}).catch(error => {
-			console.log(error)
-		})
+		fetch(baseURL, { 
+		   method: 'get', 
+		   headers: new Headers({
+			 'Authorization':localStorage.getItem("token")
+		   })
+		 }).then(response => response.json()).then(data => setRows(data)).catch(error => {
+                        console.error('There was an error!', error);
+        });
 	}
 
 	if (!rows) 
