@@ -11,6 +11,7 @@ import ButtonGrupo from './buttonGrupo';
 import {useNavigate} from 'react-router-dom';
 
 
+
 function Barra() {
 	const navigate = useNavigate();
 	

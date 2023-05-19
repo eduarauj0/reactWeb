@@ -22,10 +22,39 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import ButtonGrupo from './buttonGrupo';
+import * as React from 'react';
+import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
+import Button from '@mui/material/Button';
+import MensagemPop from './mensagemPop';
 
-
+export const paramOpen = {
+							open: true,
+							vertical: 'top',
+							horizontal: 'center',
+							mensagem: 'Eu sou a mensagem json'
+						  };
+export const paramClose = {
+							open: false,
+							vertical: 'top',
+							horizontal: 'center',
+							mensagem: 'Eu sou a mensagem json'
+						  };
+export let paramFinal = {
+							open: true,
+							vertical: 'top',
+							horizontal: 'center',
+							mensagem: 'Eu sou a mensagem json'
+						  };
+						  
+						  
+export function parametroPop(param){
+	   paramFinal = param;
+	   alert(JSON.stringify(paramFinal));
+}
 
 function App() {
+		
+
   return (
 	<Container fluid="md">
       <Row>
@@ -48,7 +77,11 @@ function App() {
 						  <Route path="/formBootstrap" element={<FormBootstrap />} />
 						  <Route path="/car" element={<Car brand="Ford" color="azul"/>} />
 						  <Route path="/buttonGrupo" element={<ButtonGrupo />} />
+						  <Route path="/mensagemPop" element={<MensagemPop />} />
 					  </Routes>
+					 
+					  
+					 <MensagemPop param={paramFinal} />
 				  </div>
 			</BrowserRouter>
 		</Col>

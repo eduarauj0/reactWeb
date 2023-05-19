@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { paramOpen, paramClose, paramFinal,App ,parametroPop} from './App';
 
 function MyForm() {
   const [inputs, setInputs] = useState({});
@@ -15,23 +16,28 @@ function MyForm() {
   
   function ajaxLogin(){
 	    	
+		// body: JSON.stringify({ 'login': 'eduardo','senha':'123' })
 		fetch(baseURL, { 
 		   method: 'POST',
 		   headers: { 'Content-Type': 'application/json' },
-		   body: JSON.stringify({ 'login': 'eduardo','senha':'123' })
+		   body: JSON.stringify(inputs)
 		 }).then(response => response.json()).then(data => localStorage.setItem("token",data.token));
 		
 	}
 	
   const handleSubmit = (event) => {
+	    event.preventDefault();
 		ajaxLogin();
-		event.preventDefault();
-		//alert(JSON.stringify(inputs));
+		parametroPop(paramOpen);
   }
   
   const verificarToken = (event) => { 
     event.preventDefault();
     alert(localStorage.getItem("token"));
+	//App.handleClick({
+    //      vertical: 'top',
+    //      horizontal: 'center',
+    //    });
   }
 
   return (
@@ -46,7 +52,7 @@ function MyForm() {
         
 		<Button variant="contained" type="submit">Enviar</Button>
 		
-		<Button variant="contained" onClick={verificarToken}> token</Button>
+		
        
     </form>
   )

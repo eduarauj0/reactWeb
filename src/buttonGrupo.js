@@ -48,6 +48,8 @@ function ButtonGrupo() {
         <MenuItem onClick={() => chamaComponente('/gridMiui')}>GridMiui</MenuItem>
         <MenuItem onClick={() => chamaComponente('/ajax')}>Ajax</MenuItem>
 		<MenuItem onClick={() => chamaComponente('/bootstrap')}>Bootstrap</MenuItem>
+		
+		
       </Menu>
 	</div>
   );

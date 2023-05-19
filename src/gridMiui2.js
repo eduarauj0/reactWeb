@@ -47,23 +47,22 @@ function GridMiui2() {
 		   })
 		 }).then(response => response.json()).then(data => setRows(data)).catch(error => {
                         console.error('There was an error!', error);
+						setRows('');
         });
 	}
-
-	if (!rows) 
-		  return (
-		<div>
-		  <h1>não trouxe nada</h1>
-		</div>
-	);
-  
+	
 	const style = {
       overflowY: 'scroll',
       height:'500px'
     };
-	
-  
-	return (
+	console.log(rows);
+	if (!rows) {
+		  return (
+		<div>
+		  <h1>não trouxe nada</h1>
+		</div>
+	)}else{
+		return (
 		<div>
 			<Button variant="outlined" startIcon={<DeleteIcon />}>
 				Delete
@@ -84,7 +83,13 @@ function GridMiui2() {
 			disableRowSelectionOnClick
 		  />
 		</div>
-	);
+		);
+	}
+  
+	
+	
+  
+	
   
 }
 
