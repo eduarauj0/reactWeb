@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import React,{ useState,useEffect,useContext,createContext  } from 'react';
 import ReactDOM from 'react-dom/client';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { paramFinal,App ,parametroPop} from './App';
+import { paramFinal,App,Context } from './App';
 
 function MyForm() {
   const [inputs, setInputs] = useState({});
+  const { contexto, setContexto } = useContext(Context);
   const baseURL = 'http://localhost:8081/login';
 
   const handleChange = (event) => {
@@ -28,7 +29,7 @@ function MyForm() {
   const handleSubmit = (event) => {
 	    event.preventDefault();
 		ajaxLogin();
-		//parametroPop(paramOpen);
+		setContexto({nome:'logado',cpf:'11111111111',openPop:true,msgPop:localStorage.getItem("token")});
   }
   
   const verificarToken = (event) => { 

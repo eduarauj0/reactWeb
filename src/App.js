@@ -22,7 +22,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import ButtonGrupo from './buttonGrupo';
-import React,{ useState,useEffect,useContext,createContext } from 'react';
+import React,{ useState,useEffect,useContext,createContext,useMemo  } from 'react';
 import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
 import Button from '@mui/material/Button';
 import MensagemPop from './mensagemPop';
@@ -42,25 +42,26 @@ export function parametroPop(param){
 	   alert(JSON.stringify(paramFinal));
 }
 
-export const Context = createContext('Default Value');
+export const Context = createContext({
+   contexto: {nome:'eduardo',cpf:'00960750150',openPop:true,msgPop:'Mensagem padrão'},
+   setContexto: () => {}
+});
 
 function App() {
 	
-	const value = 'My Context Value';
+	const [contexto, setContexto] = useState({nome:'eduardo',cpf:'00960750150',openPop:true,msgPop:'Mensagem padrão'});
 	
-	
-  const [corpoSnack, setCorpoSnack] = useState({
-							open: true,
-							vertical: 'top',
-							horizontal: 'center',
-							mensagem: 'Eu sou a mensagem json'
-						  });
+	const value = useMemo(
+    () => ({ contexto, setContexto }), 
+    [contexto]
+  );
 
   return (
 	<Container fluid="md">
       <Row>
         <Col>
 			<BrowserRouter>
+			<Context.Provider value={value}>
 				  <div className="App">	 
 					  <Barra />
 					  <br /><br />
@@ -81,10 +82,11 @@ function App() {
 						  <Route path="/mensagemPop" element={<MensagemPop />} />
 					  </Routes>
 					 
-					 <Context.Provider value={value}>
-						<MensagemPop corpoSnack={corpoSnack} setCorpoSnack={setCorpoSnack}/>
-					 </Context.Provider>
+					 
+						<MensagemPop />
+					 
 				  </div>
+				  </Context.Provider>
 			</BrowserRouter>
 		</Col>
       </Row>

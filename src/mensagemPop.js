@@ -5,10 +5,13 @@ import React,{ useState,useEffect,useContext,createContext  } from 'react';
 import { paramFinal,App,Context } from './App';
 
 
-function MensagemPop({corpoSnack,setCorpoSnack}) {
+function MensagemPop() {
 	
-	const value = useContext(Context);
-	
+	const { contexto, setContexto } = useContext(Context);
+	const changeHandler = event => {
+		setContexto({nome:event.target.value,cpf:'11111111111',openPop:true,msgPop:event.target.value});
+		
+	}
   //const [corpoSnack, setCorpoSnack] = useState({param});
   
   //React.useEffect(() => {
@@ -17,15 +20,20 @@ function MensagemPop({corpoSnack,setCorpoSnack}) {
 	//}, [corpoSnack]);
 
   const handleClose = () => {
-	  setCorpoSnack({open: true, mensagem: 'xxxx'});
-	  
+	setContexto({nome:'teste',cpf:'11111111111',openPop:false,msgPop:'test'});
   };
 
   return (
     <div>
-      <Snackbar open={corpoSnack.open} autoHideDuration={5000} onClose={handleClose}  message={corpoSnack.mensagem}>
+      <Snackbar open={contexto.openPop} autoHideDuration={5000} onClose={handleClose}  message={contexto.msgPop}>
 		</Snackbar>
-		<div>{value}</div>
+		<div>
+		<input
+			  type="text"
+			  value={contexto.nome}
+			  onChange={changeHandler}
+			/>
+	    </div>
     </div>
   );
 }
