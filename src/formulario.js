@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { paramOpen, paramClose, paramFinal,App ,parametroPop} from './App';
+import { paramFinal,App ,parametroPop} from './App';
 
 function MyForm() {
   const [inputs, setInputs] = useState({});
@@ -28,7 +28,7 @@ function MyForm() {
   const handleSubmit = (event) => {
 	    event.preventDefault();
 		ajaxLogin();
-		parametroPop(paramOpen);
+		//parametroPop(paramOpen);
   }
   
   const verificarToken = (event) => { 

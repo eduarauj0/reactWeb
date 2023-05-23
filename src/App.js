@@ -22,25 +22,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import ButtonGrupo from './buttonGrupo';
-import * as React from 'react';
+import React,{ useState,useEffect,useContext,createContext } from 'react';
 import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
 import Button from '@mui/material/Button';
 import MensagemPop from './mensagemPop';
 
-export const paramOpen = {
-							open: true,
-							vertical: 'top',
-							horizontal: 'center',
-							mensagem: 'Eu sou a mensagem json'
-						  };
-export const paramClose = {
-							open: false,
-							vertical: 'top',
-							horizontal: 'center',
-							mensagem: 'Eu sou a mensagem json'
-						  };
+
+
 export let paramFinal = {
-							open: true,
+							open: false,
 							vertical: 'top',
 							horizontal: 'center',
 							mensagem: 'Eu sou a mensagem json'
@@ -52,8 +42,19 @@ export function parametroPop(param){
 	   alert(JSON.stringify(paramFinal));
 }
 
+export const Context = createContext('Default Value');
+
 function App() {
-		
+	
+	const value = 'My Context Value';
+	
+	
+  const [corpoSnack, setCorpoSnack] = useState({
+							open: true,
+							vertical: 'top',
+							horizontal: 'center',
+							mensagem: 'Eu sou a mensagem json'
+						  });
 
   return (
 	<Container fluid="md">
@@ -80,8 +81,9 @@ function App() {
 						  <Route path="/mensagemPop" element={<MensagemPop />} />
 					  </Routes>
 					 
-					  
-					 <MensagemPop param={paramFinal} />
+					 <Context.Provider value={value}>
+						<MensagemPop corpoSnack={corpoSnack} setCorpoSnack={setCorpoSnack}/>
+					 </Context.Provider>
 				  </div>
 			</BrowserRouter>
 		</Col>
