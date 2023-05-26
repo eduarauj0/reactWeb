@@ -25,15 +25,8 @@ function MensagemPop() {
 
   return (
     <div>
-      <Snackbar open={contexto.openPop} autoHideDuration={5000} onClose={handleClose}  message={contexto.msgPop}>
+      <Snackbar open={contexto.openPop} autoHideDuration={5000} onClose={handleClose}  message={contexto.msgPop} anchorOrigin={{'vertical': 'bottom', 'horizontal': 'right'}}>
 		</Snackbar>
-		<div>
-		<input
-			  type="text"
-			  value={contexto.nome}
-			  onChange={changeHandler}
-			/>
-	    </div>
     </div>
   );
 }

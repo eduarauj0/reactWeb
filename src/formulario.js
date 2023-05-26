@@ -18,27 +18,32 @@ function MyForm() {
   function ajaxLogin(){
 	    	
 		// body: JSON.stringify({ 'login': 'eduardo','senha':'123' })
+		
 		fetch(baseURL, { 
 		   method: 'POST',
 		   headers: { 'Content-Type': 'application/json' },
 		   body: JSON.stringify(inputs)
-		 }).then(response => response.json()).then(data => localStorage.setItem("token",data.token));
+		 }).then(response => response.json()).then(data => {
+			if(data.message){
+				//console.log(data);
+				setContexto({nome:'logado',cpf:'11111111111',openPop:true,msgPop:data.message});
+			}else{
+				 //alert(JSON.stringify(response));
+				localStorage.setItem("token",data.token)
+				setContexto({nome:'logado',cpf:'11111111111',openPop:true,msgPop:localStorage.getItem("token")});
+			}
+		 });
 		
 	}
 	
   const handleSubmit = (event) => {
 	    event.preventDefault();
 		ajaxLogin();
-		setContexto({nome:'logado',cpf:'11111111111',openPop:true,msgPop:localStorage.getItem("token")});
   }
   
   const verificarToken = (event) => { 
     event.preventDefault();
-    alert(localStorage.getItem("token"));
-	//App.handleClick({
-    //      vertical: 'top',
-    //      horizontal: 'center',
-    //    });
+    //alert(localStorage.getItem("token"));
   }
 
   return (

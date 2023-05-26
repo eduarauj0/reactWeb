@@ -1,11 +1,13 @@
-import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {useNavigate} from 'react-router-dom';
+import React,{ useState,useEffect,useContext,createContext  } from 'react';
+import { paramFinal,App,Context } from './App';
 
 function ButtonGrupo() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const { contexto, setContexto } = useContext(Context);
   
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -23,6 +25,11 @@ function ButtonGrupo() {
   const chamaComponente = (evento) => {
 	  navigate(evento);
 	  handleClose();
+  }
+  
+  const logout = (evento) => {
+	 localStorage.setItem("token","");
+	 setContexto({nome:'teste',cpf:'11111111111',openPop:true,msgPop:'Deslogado'});
   }
 
   return (
@@ -48,6 +55,7 @@ function ButtonGrupo() {
         <MenuItem onClick={() => chamaComponente('/gridMiui')}>GridMiui</MenuItem>
         <MenuItem onClick={() => chamaComponente('/ajax')}>Ajax</MenuItem>
 		<MenuItem onClick={() => chamaComponente('/bootstrap')}>Bootstrap</MenuItem>
+		<MenuItem onClick={() => logout()}>Logout</MenuItem>
 		
 		
       </Menu>

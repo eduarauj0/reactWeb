@@ -6,7 +6,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import ReactDOM from 'react-dom/client';
 
-
 function GridMiui2() {
 	
 	const [rows, setRows] = React.useState(null);
@@ -74,11 +73,11 @@ function GridMiui2() {
 			initialState={{
 			  pagination: {
 				paginationModel: {
-				  pageSize: 5,
+				  pageSize: 10,
 				},
 			  },
 			}}
-			pageSizeOptions={[5]}
+			pageSizeOptions={[5,10,25]}
 			checkboxSelection
 			disableRowSelectionOnClick
 		  />
