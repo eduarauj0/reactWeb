@@ -1,3 +1,4 @@
 # Getting Started with Create React App
+Para subir
 
-teste
+npm start 
