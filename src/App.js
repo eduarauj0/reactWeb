@@ -61,7 +61,7 @@ function App() {
   );
 
   return (
-	<Container fluid="md" maxWidth="sm">
+	<Container fluid="md" >
       <Row>
         <Col>
 			<BrowserRouter>

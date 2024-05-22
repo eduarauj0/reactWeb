@@ -11,9 +11,16 @@ function GridMiui2() {
 	const [rows, setRows] = React.useState(null);
 	const baseURL = 'http://localhost:8081/api/aluno';
 	
-	React.useEffect(() => {
-		ajaxGet(baseURL);
-	}, []);
+	//React.useEffect(() => {
+	//	ajaxGet(baseURL);
+	//}, []);
+	
+	useEffect(()=>{
+      /*
+      Query logic
+      */
+      ajaxGet(baseURL);
+	},[]);
 
 	const columns: GridColDef[] = [
 	  { field: 'cod', headerName: 'Código', width: 90 },
@@ -44,9 +51,28 @@ function GridMiui2() {
 		   headers: new Headers({
 			 'Authorization':localStorage.getItem("token")
 		   })
-		 }).then(response => response.json()).then(data => setRows(data)).catch(error => {
-                        console.error('There was an error!', error);
-						setRows('');
+		 }).then(response => 
+			response.json().then(data => ({
+				data: data,
+				status: response.status
+			})
+			).then(res => {
+				//console.log(res.status, res.data)
+				if(res.status === 401){
+					console.log("Autorização negada")
+				}else if(res.status === 200){
+					setRows(res.data);
+				}
+				
+		}))
+		 .catch(error => {
+			// if(error.message){
+				//console.log("teste agora");
+				//setContexto({nome:'logado',cpf:'11111111111',openPop:true,msgPop:data.message});
+			//}
+                //console.error('There was an error!', error);
+				console.log("Caiu no catch");
+				setRows('Caiu no catch');
         });
 	}
 	
@@ -54,7 +80,7 @@ function GridMiui2() {
       overflowY: 'scroll',
       height:'500px'
     };
-	console.log(rows);
+	//console.log(rows);
 	if (!rows) {
 		  return (
 		<div>

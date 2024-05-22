@@ -30,6 +30,7 @@ function ButtonGrupo() {
   const logout = (evento) => {
 	 localStorage.setItem("token","");
 	 setContexto({nome:'teste',cpf:'11111111111',openPop:true,msgPop:'Deslogado'});
+	 chamaComponente('/formulario');
   }
 
   return (
